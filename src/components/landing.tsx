@@ -1,13 +1,13 @@
 import Box from "@mui/material/Box";
-import Footer from "./components/layout/Footer";
-import Navbar from "./components/layout/Navbar";
-import About from "./components/sections/About";
-import Events from "./components/sections/Events";
-import Hero from "./components/sections/Hero";
-import Mission from "./components/sections/Mission";
-import { ColorModeProvider } from "./theme";
+import { ColorModeProvider } from "../theme";
+import Footer from "./layout/Footer";
+import Navbar from "./layout/Navbar";
+import About from "./sections/About";
+import Events from "./sections/Events";
+import Hero from "./sections/Hero";
+import Mission from "./sections/Mission";
 
-function App() {
+export default function Landing() {
   return (
     <ColorModeProvider>
       <Box
@@ -29,5 +29,3 @@ function App() {
     </ColorModeProvider>
   );
 }
-
-export default App;

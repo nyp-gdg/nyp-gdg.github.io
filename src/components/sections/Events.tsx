@@ -9,14 +9,8 @@ import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
-import type { Event } from "../../data/eventsData";
-import {
-  formatEventDate,
-  getEventTypeColor,
-  getEventTypeLabel,
-  pastEvents,
-  upcomingEvents,
-} from "../../data/eventsData";
+import type { Event } from "../../data/events";
+import { formatEventDate, getEventTypeColor, getEventTypeLabel, pastEvents, upcomingEvents } from "../../data/events";
 
 interface EventCardProps {
   event: Event;

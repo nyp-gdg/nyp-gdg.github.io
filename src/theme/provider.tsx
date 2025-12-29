@@ -1,35 +1,31 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useMemo,
-  useEffect,
-} from "react";
-import type { ReactNode } from "react";
+/* eslint-disable react-refresh/only-export-components */
+
 import type { PaletteMode } from "@mui/material";
-import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider as MaterialThemeProvider } from "@mui/material/styles";
+import type { ReactNode } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { createAppTheme } from "./theme";
 
-interface ColorModeContextType {
+interface ThemeContextType {
   mode: PaletteMode;
-  toggleColorMode: () => void;
+  toggleTheme: () => void;
 }
 
-const ColorModeContext = createContext<ColorModeContextType>({
+const ThemeContext = createContext<ThemeContextType>({
   mode: "light",
-  toggleColorMode: () => {},
+  toggleTheme: () => {},
 });
 
-export function useColorMode(): ColorModeContextType {
-  return useContext(ColorModeContext);
+export function useTheme(): ThemeContextType {
+  return useContext(ThemeContext);
 }
 
-interface ColorModeProviderProps {
+interface ThemeProviderProps {
   children: ReactNode;
 }
 
-export function ColorModeProvider({ children }: ColorModeProviderProps) {
+export function ThemeProvider({ children }: ThemeProviderProps) {
   const [mode, setMode] = useState<PaletteMode>(() => {
     // Check localStorage first
     const savedMode = localStorage.getItem("colorMode") as PaletteMode | null;
@@ -38,9 +34,7 @@ export function ColorModeProvider({ children }: ColorModeProviderProps) {
     }
     // Fall back to system preference
     if (typeof window !== "undefined" && window.matchMedia) {
-      return window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light";
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
     }
     return "light";
   });
@@ -61,7 +55,7 @@ export function ColorModeProvider({ children }: ColorModeProviderProps) {
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  function toggleColorMode(): void {
+  function toggleTheme(): void {
     setMode((prevMode) => {
       const newMode = prevMode === "light" ? "dark" : "light";
       localStorage.setItem("colorMode", newMode);
@@ -74,17 +68,17 @@ export function ColorModeProvider({ children }: ColorModeProviderProps) {
   const contextValue = useMemo(
     () => ({
       mode,
-      toggleColorMode,
+      toggleTheme,
     }),
     [mode]
   );
 
   return (
-    <ColorModeContext.Provider value={contextValue}>
-      <ThemeProvider theme={theme}>
+    <ThemeContext.Provider value={contextValue}>
+      <MaterialThemeProvider theme={theme}>
         <CssBaseline />
         {children}
-      </ThemeProvider>
-    </ColorModeContext.Provider>
+      </MaterialThemeProvider>
+    </ThemeContext.Provider>
   );
 }

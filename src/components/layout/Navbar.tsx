@@ -25,7 +25,7 @@ const navItems = [
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { mode, toggleColorMode } = useColorMode();
+  const { mode, toggleTheme: toggleColorMode } = useColorMode();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
