@@ -15,7 +15,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState } from "react";
-import { gdgColors, useColorMode } from "../../theme";
+import { gdgColors } from "../../theme";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
@@ -25,7 +25,7 @@ const navItems = [
 
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const { mode, toggleTheme: toggleColorMode } = useColorMode();
+  const { mode, toggleTheme } = useTheme();
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
@@ -158,7 +158,7 @@ function Navbar() {
               </Button>
             ))}
             <IconButton
-              onClick={toggleColorMode}
+              onClick={toggleTheme}
               color={"inherit"}
               aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
               type={"button"}
@@ -172,7 +172,7 @@ function Navbar() {
         {isMobile && (
           <Box sx={{ display: "flex", alignItems: "center" }}>
             <IconButton
-              onClick={toggleColorMode}
+              onClick={toggleTheme}
               color={"inherit"}
               aria-label={mode === "light" ? "Switch to dark mode" : "Switch to light mode"}
               type={"button"}

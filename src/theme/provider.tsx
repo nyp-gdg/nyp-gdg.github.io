@@ -28,7 +28,7 @@ interface ThemeProviderProps {
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [mode, setMode] = useState<PaletteMode>(() => {
     // Check localStorage first
-    const savedMode = localStorage.getItem("colorMode") as PaletteMode | null;
+    const savedMode = localStorage.getItem("theme") as PaletteMode | null;
     if (savedMode === "light" || savedMode === "dark") {
       return savedMode;
     }
@@ -45,7 +45,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
 
     function handleChange(e: MediaQueryListEvent): void {
       // Only update if user hasn't manually set a preference
-      const savedMode = localStorage.getItem("colorMode");
+      const savedMode = localStorage.getItem("theme");
       if (!savedMode) {
         setMode(e.matches ? "dark" : "light");
       }
@@ -58,7 +58,7 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   function toggleTheme(): void {
     setMode((prevMode) => {
       const newMode = prevMode === "light" ? "dark" : "light";
-      localStorage.setItem("colorMode", newMode);
+      localStorage.setItem("theme", newMode);
       return newMode;
     });
   }

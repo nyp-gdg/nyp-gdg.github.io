@@ -1,5 +1,5 @@
 import Box from "@mui/material/Box";
-import { ColorModeProvider } from "../theme";
+import { ThemeProvider } from "../theme";
 import Footer from "./layout/Footer";
 import Navbar from "./layout/Navbar";
 import About from "./sections/About";
@@ -9,7 +9,7 @@ import Mission from "./sections/Mission";
 
 export default function Landing() {
   return (
-    <ColorModeProvider>
+    <ThemeProvider>
       <Box
         sx={{
           minHeight: "100vh",
@@ -26,6 +26,6 @@ export default function Landing() {
         </Box>
         <Footer />
       </Box>
-    </ColorModeProvider>
+    </ThemeProvider>
   );
 }

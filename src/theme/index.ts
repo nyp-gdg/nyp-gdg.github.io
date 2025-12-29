@@ -1,2 +1,2 @@
-export { ThemeProvider as ColorModeProvider, useTheme as useColorMode } from "./provider";
+export { ThemeProvider, useTheme } from "./provider";
 export { createAppTheme, gdgColors } from "./theme";
