@@ -10,12 +10,12 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { useTheme } from "@mui/material/styles";
+import { useTheme as useMaterialTheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState } from "react";
-import { gdgColors } from "../../theme";
+import { gdgColors, useTheme } from "../../theme";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
@@ -26,7 +26,7 @@ const navItems = [
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const { mode, toggleTheme } = useTheme();
-  const theme = useTheme();
+  const theme = useMaterialTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   function handleDrawerToggle(): void {
