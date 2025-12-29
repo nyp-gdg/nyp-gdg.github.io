@@ -1,24 +1,23 @@
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
+# Editor configurations
+.vs/
+.idea/
 
-node_modules
-dist
-dist-ssr
-*.local
+# Project files
+node_modules/
+dist/
+*.d*
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# User files
+.env*
+!.env*.template
+
+# Other files
+.vercel/
+.next/
+.open-next/
+.wrangler/
+
+# Miscellaneous files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+Desktop.ini
+Thumbs.db
