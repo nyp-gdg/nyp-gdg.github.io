@@ -1,5 +1,6 @@
 import Box from "@mui/material/Box";
 import { ThemeProvider } from "../theme";
+import ChatBot from "./chat/ChatBot";
 import Footer from "./layout/Footer";
 import Navbar from "./layout/Navbar";
 import About from "./sections/About";
@@ -25,6 +26,7 @@ export default function Landing() {
           <About />
         </Box>
         <Footer />
+        <ChatBot />
       </Box>
     </ThemeProvider>
   );
