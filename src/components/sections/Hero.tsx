@@ -24,50 +24,70 @@ function Hero() {
     <Box
       component={"section"}
       sx={{
-        minHeight: "calc(100vh - 64px)",
-        display: "flex",
-        alignItems: "center",
         position: "relative",
         overflow: "hidden",
-        py: { xs: 8, md: 12 },
+        pt: { xs: 2, sm: 3, md: 4 },
+        pb: { xs: 8, md: 12 },
       }}
     >
-      {/* Background decoration */}
-      <Box
-        sx={{
-          position: "absolute",
-          top: -100,
-          right: -100,
-          width: 400,
-          height: 400,
-          borderRadius: "50%",
-          background: `linear-gradient(135deg, ${gdgColors.blue}20, ${gdgColors.green}20)`,
-          filter: "blur(60px)",
-          zIndex: 0,
-        }}
-        aria-hidden={"true"}
-      />
-      <Box
-        sx={{
-          position: "absolute",
-          bottom: -50,
-          left: -50,
-          width: 300,
-          height: 300,
-          borderRadius: "50%",
-          background: `linear-gradient(135deg, ${gdgColors.red}20, ${gdgColors.yellow}20)`,
-          filter: "blur(60px)",
-          zIndex: 0,
-        }}
-        aria-hidden={"true"}
-      />
+      <Container maxWidth={"lg"}>
+        {/* Official GDG Landing Page Header Banner */}
+        <Box
+          sx={{
+            width: "100%",
+            borderRadius: { xs: 3, md: 4 },
+            overflow: "hidden",
+            boxShadow: "0 8px 32px rgba(66, 133, 244, 0.12)",
+            border: 1,
+            borderColor: "divider",
+            mb: { xs: 5, md: 7 },
+            backgroundColor: "#B8EEF8",
+          }}
+        >
+          <Box
+            component={"picture"}
+            sx={{
+              display: "block",
+              width: "100%",
+              height: "auto",
+              lineHeight: 0,
+            }}
+          >
+            <source
+              media={"(max-width: 640px)"}
+              srcSet={"/assets/brand/gdg-header-640.png"}
+              width={640}
+              height={500}
+            />
+            <source
+              media={"(max-width: 1440px)"}
+              srcSet={"/assets/brand/gdg-header-1440.png"}
+              width={1440}
+              height={499}
+            />
+            <Box
+              component={"img"}
+              src={"/assets/brand/gdg-header-2650.png"}
+              alt={"Google Developer Groups on Campus Nanyang Polytechnic Landing Header"}
+              width={2500}
+              height={471}
+              sx={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+              }}
+            />
+          </Box>
+        </Box>
 
-      <Container maxWidth={"lg"} sx={{ position: "relative", zIndex: 1 }}>
+        {/* Hero Copy & CTA Content */}
         <Box
           sx={{
             textAlign: "center",
-            maxWidth: 800,
+            maxWidth: 820,
             mx: "auto",
+            position: "relative",
+            zIndex: 1,
           }}
         >
           {/* Official GDG Emblem & Chapter Tag */}
@@ -117,6 +137,7 @@ function Hero() {
             sx={{
               mb: 3,
               fontWeight: 700,
+              fontSize: { xs: "2.25rem", sm: "3rem", md: "3.5rem" },
               background: `linear-gradient(135deg, ${gdgColors.blue}, ${gdgColors.green})`,
               backgroundClip: "text",
               WebkitBackgroundClip: "text",
@@ -134,6 +155,7 @@ function Hero() {
               color: "text.secondary",
               fontWeight: 400,
               lineHeight: 1.6,
+              fontSize: { xs: "1.05rem", sm: "1.25rem" },
             }}
           >
             GDG on Campus - Nanyang Polytechnic is a student-led community dedicated to bridging the gap between
