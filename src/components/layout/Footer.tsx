@@ -77,43 +77,20 @@ function Footer() {
         <Grid container={true} spacing={4}>
           {/* Logo & Description */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 2 }}>
-              <Box sx={{ display: "flex", gap: 0.5 }} aria-hidden={"true"}>
-                <Box
-                  sx={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    backgroundColor: gdgColors.blue,
-                  }}
-                />
-                <Box
-                  sx={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    backgroundColor: gdgColors.red,
-                  }}
-                />
-                <Box
-                  sx={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    backgroundColor: gdgColors.yellow,
-                  }}
-                />
-                <Box
-                  sx={{
-                    width: 10,
-                    height: 10,
-                    borderRadius: "50%",
-                    backgroundColor: gdgColors.green,
-                  }}
-                />
-              </Box>
+            <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 2 }}>
+              <Box
+                component={"img"}
+                src={"/gdg-emblem.svg"}
+                alt={"GDG on Campus Logo"}
+                sx={{
+                  width: 36,
+                  height: 20,
+                  display: "block",
+                  objectFit: "contain",
+                }}
+              />
               <Typography variant={"h6"} sx={{ fontWeight: 700 }}>
-                GDG on Campus NYP
+                GDG on Campus Nanyang Polytechnic
               </Typography>
             </Box>
             <Typography variant={"body2"} sx={{ color: "text.secondary", mb: 2 }}>

@@ -1,12 +1,31 @@
 import type { PaletteMode } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 
-// GDG Brand Colors
+// Official GDG on Campus Brand Colors
 export const gdgColors = {
+  // Core colors
   blue: "#4285F4",
-  red: "#EA4335",
-  yellow: "#FBBC04",
   green: "#34A853",
+  yellow: "#F9AB00",
+  red: "#EA4335",
+  black: "#1E1E1E",
+  offWhite: "#F0F0F0",
+  // Halftones
+  halftoneBlue: "#57CAFF",
+  halftoneGreen: "#5CDB6D",
+  halftoneYellow: "#FFD427",
+  halftoneRed: "#FF7DAF",
+  // Pastels
+  pastelBlue: "#C3ECF6",
+  pastelGreen: "#CCF6C5",
+  pastelYellow: "#FFE7A5",
+  pastelRed: "#F8D8D8",
+} as const;
+
+// Official GDG on Campus Typography
+export const gdgTypography = {
+  fontFamily: '"Google Sans", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+  fontFamilyMono: '"Google Sans Mono", "Roboto Mono", monospace',
 } as const;
 
 // Create theme based on mode
@@ -16,37 +35,37 @@ export function createAppTheme(mode: PaletteMode) {
       mode,
       primary: {
         main: gdgColors.blue,
-        light: "#669DF6",
+        light: gdgColors.halftoneBlue,
         dark: "#1A73E8",
         contrastText: "#FFFFFF",
       },
       secondary: {
         main: gdgColors.green,
-        light: "#5BB974",
+        light: gdgColors.halftoneGreen,
         dark: "#1E8E3E",
         contrastText: "#FFFFFF",
       },
       error: {
         main: gdgColors.red,
-        light: "#EE675C",
+        light: gdgColors.halftoneRed,
         dark: "#C5221F",
       },
       warning: {
         main: gdgColors.yellow,
-        light: "#FDD663",
-        dark: "#F9AB00",
+        light: gdgColors.halftoneYellow,
+        dark: "#E37400",
       },
       background: {
         default: mode === "light" ? "#FFFFFF" : "#121212",
-        paper: mode === "light" ? "#F8F9FA" : "#1E1E1E",
+        paper: mode === "light" ? "#F8F9FA" : gdgColors.black,
       },
       text: {
-        primary: mode === "light" ? "#202124" : "#E8EAED",
+        primary: mode === "light" ? gdgColors.black : "#E8EAED",
         secondary: mode === "light" ? "#5F6368" : "#9AA0A6",
       },
     },
     typography: {
-      fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+      fontFamily: gdgTypography.fontFamily,
       h1: {
         fontSize: "3.5rem",
         fontWeight: 700,

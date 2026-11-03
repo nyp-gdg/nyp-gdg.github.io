@@ -58,7 +58,15 @@ function EventCard({ event, isUpcoming = false }: EventCardProps) {
           }}
         >
           <CalendarTodayIcon sx={{ fontSize: 18 }} aria-hidden={"true"} />
-          <Typography variant={"body2"}>{formatEventDate(event.date)}</Typography>
+          <Typography
+            variant={"body2"}
+            sx={{
+              fontFamily: '"Google Sans Mono", "Roboto Mono", monospace',
+              fontSize: "0.85rem",
+            }}
+          >
+            {formatEventDate(event.date)}
+          </Typography>
         </Box>
         <Typography variant={"body2"} sx={{ color: "text.secondary" }}>
           {event.description}

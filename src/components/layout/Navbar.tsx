@@ -15,7 +15,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useState } from "react";
-import { gdgColors, useTheme } from "../../theme";
+import { useTheme } from "../../theme";
 
 const navItems = [
   { label: "Mission", href: "#mission" },
@@ -73,69 +73,55 @@ function Navbar() {
     >
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* Logo */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <Box
+          component={"a"}
+          href={"#"}
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 1.5,
+            textDecoration: "none",
+            color: "inherit",
+          }}
+        >
           <Box
+            component={"img"}
+            src={"/gdg-emblem.svg"}
+            alt={"GDG on Campus Logo"}
             sx={{
-              display: "flex",
-              gap: 0.5,
+              width: 38,
+              height: 22,
+              display: "block",
+              objectFit: "contain",
+              flexShrink: 0,
             }}
-            aria-hidden={"true"}
-          >
-            <Box
+          />
+          <Box sx={{ display: "flex", flexDirection: { xs: "row", sm: "row" }, alignItems: "baseline", gap: 0.75 }}>
+            <Typography
+              variant={"h6"}
+              component={"span"}
               sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.blue,
+                fontWeight: 700,
+                color: "text.primary",
+                fontSize: { xs: "0.95rem", sm: "1.1rem" },
+                whiteSpace: "nowrap",
               }}
-            />
-            <Box
+            >
+              GDG on Campus
+            </Typography>
+            <Typography
+              variant={"h6"}
+              component={"span"}
               sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.red,
+                fontWeight: 500,
+                color: "text.secondary",
+                fontSize: { xs: "0.85rem", sm: "0.95rem" },
+                whiteSpace: "nowrap",
               }}
-            />
-            <Box
-              sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.yellow,
-              }}
-            />
-            <Box
-              sx={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.green,
-              }}
-            />
+            >
+              Nanyang Polytechnic
+            </Typography>
           </Box>
-          <Typography
-            variant={"h6"}
-            component={"span"}
-            sx={{
-              fontWeight: 700,
-              color: "text.primary",
-              ml: 1,
-            }}
-          >
-            GDG on Campus
-          </Typography>
-          <Typography
-            variant={"h6"}
-            component={"span"}
-            sx={{
-              fontWeight: 400,
-              color: "text.secondary",
-              display: { xs: "none", sm: "inline" },
-            }}
-          >
-            NYP
-          </Typography>
         </Box>
 
         {/* Desktop Navigation */}

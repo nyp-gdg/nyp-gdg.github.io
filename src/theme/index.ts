@@ -1,2 +1,2 @@
 export { ThemeProvider, useTheme } from "./provider";
-export { createAppTheme, gdgColors } from "./theme";
+export { createAppTheme, gdgColors, gdgTypography } from "./theme";

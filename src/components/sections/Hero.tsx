@@ -70,48 +70,45 @@ function Hero() {
             mx: "auto",
           }}
         >
-          {/* Color dots */}
+          {/* Official GDG Emblem & Chapter Tag */}
           <Box
             sx={{
-              display: "flex",
-              justifyContent: "center",
+              display: "inline-flex",
+              alignItems: "center",
               gap: 1.5,
-              mb: 4,
+              mb: 3,
+              px: 2.5,
+              py: 1,
+              borderRadius: 10,
+              backgroundColor: "background.paper",
+              border: 1,
+              borderColor: "divider",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
             }}
-            aria-hidden={"true"}
           >
             <Box
+              component={"img"}
+              src={"/gdg-emblem.svg"}
+              alt={"Google Developer Groups Emblem"}
               sx={{
-                width: 16,
-                height: 16,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.blue,
+                width: 34,
+                height: 19,
+                display: "block",
+                objectFit: "contain",
               }}
             />
-            <Box
+            <Typography
+              component={"span"}
               sx={{
-                width: 16,
-                height: 16,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.red,
+                fontFamily: '"Google Sans Mono", "Roboto Mono", monospace',
+                fontSize: { xs: "0.8rem", sm: "0.875rem" },
+                fontWeight: 500,
+                color: "text.primary",
+                letterSpacing: "0.02em",
               }}
-            />
-            <Box
-              sx={{
-                width: 16,
-                height: 16,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.yellow,
-              }}
-            />
-            <Box
-              sx={{
-                width: 16,
-                height: 16,
-                borderRadius: "50%",
-                backgroundColor: gdgColors.green,
-              }}
-            />
+            >
+              #GDGOnCampus • Nanyang Polytechnic
+            </Typography>
           </Box>
 
           <Typography
