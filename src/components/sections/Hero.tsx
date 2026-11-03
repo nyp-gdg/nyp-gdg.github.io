@@ -28,7 +28,7 @@ function Hero() {
         position: "relative",
         overflow: "hidden",
         pt: { xs: 2, sm: 3, md: 4 },
-        pb: { xs: 8, md: 12 },
+        pb: { xs: 8, md: 12 }
       }}
     >
       <HeroBackground />
