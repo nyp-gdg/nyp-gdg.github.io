@@ -1,16 +1,13 @@
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Chip from "@mui/material/Chip";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import type { Event } from "../../data/events";
-import { formatEventDate, getEventTypeColor, getEventTypeLabel, pastEvents, upcomingEvents } from "../../data/events";
+import { formatEventDate, getEventLevelColor, getEventTypeColor, getEventTypeLabel, pastEvents, upcomingEvents } from "../../data/events";
 
 interface EventCardProps {
   event: Event;
@@ -18,12 +15,6 @@ interface EventCardProps {
 }
 
 function EventCard({ event, isUpcoming = false }: EventCardProps) {
-  function handleEventClick(): void {
-    if (event.link) {
-      window.open(event.link, "_blank", "noopener,noreferrer");
-    }
-  }
-
   return (
     <Card
       sx={{
@@ -43,7 +34,14 @@ function EventCard({ event, isUpcoming = false }: EventCardProps) {
           }}
         >
           <Chip label={getEventTypeLabel(event.type)} color={getEventTypeColor(event.type)} size={"small"} />
-          {isUpcoming && <Chip label={"Upcoming"} color={"success"} size={"small"} variant={"outlined"} />}
+          {event.level && (
+            <Chip
+              label={event.level}
+              color={getEventLevelColor(event.level)}
+              size={"small"}
+              variant={"outlined"}
+            />
+          )}
         </Box>
         <Typography variant={"h5"} component={"h3"} sx={{ mb: 1.5, fontWeight: 600 }}>
           {event.title}
@@ -72,13 +70,6 @@ function EventCard({ event, isUpcoming = false }: EventCardProps) {
           {event.description}
         </Typography>
       </CardContent>
-      {event.link && (
-        <CardActions sx={{ px: 2, pb: 2 }}>
-          <Button size={"small"} onClick={handleEventClick} endIcon={<ArrowForwardIcon />} type={"button"}>
-            Learn More
-          </Button>
-        </CardActions>
-      )}
     </Card>
   );
 }

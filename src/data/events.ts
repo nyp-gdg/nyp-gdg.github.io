@@ -4,6 +4,7 @@ export interface Event {
   description: string;
   date: string;
   type: "workshop" | "speaker" | "hackathon" | "networking";
+  level?: "Beginner" | "Intermediate" | "Advanced";
   image?: string;
   link?: string;
 }
@@ -11,27 +12,27 @@ export interface Event {
 export const upcomingEvents: Event[] = [
   {
     id: "1",
-    title: "Introduction to Cloud Computing with GCP",
-    description: "Learn the fundamentals of Google Cloud Platform and deploy your first application to the cloud.",
-    date: "2026-01-15",
+    title: "Sign In with Google with Python Flask",
+    description: "Learn how to build robust authentication systems, including SSO and OAuth2, by developing a functional Flask application from the ground up in this hands-on workshop.",
+    date: "2026-11-14",
     type: "workshop",
-    link: "https://gdg.community.dev/gdg-on-campus-nanyang-polytechnic-singapore-singapore/",
+    level: "Beginner"
   },
   {
     id: "2",
-    title: "Build Your First AI App with Gemini",
-    description: "Hands-on workshop exploring Google's Gemini API to build intelligent applications.",
-    date: "2026-01-25",
+    title: "Hand Gesture Control Chrome Extension Workshop",
+    description: "Build an interactive Chrome extension that leverages computer vision to navigate and control browser actions with hand gestures.",
+    date: "2027-01-16",
     type: "workshop",
-    link: "https://gdg.community.dev/gdg-on-campus-nanyang-polytechnic-singapore-singapore/",
+    level: "Beginner"
   },
   {
     id: "3",
-    title: "Tech Career Panel: Industry Insights",
-    description: "Join industry professionals as they share their journey and advice for aspiring developers.",
-    date: "2026-02-08",
-    type: "speaker",
-    link: "https://gdg.community.dev/gdg-on-campus-nanyang-polytechnic-singapore-singapore/",
+    title: "TensorFlow Workshop",
+    description: "Deep dive into machine learning fundamentals and the practical use of TensorFlow for training AI models in a quick 4-hour workshop.",
+    date: "2027-04-05",
+    type: "workshop",
+    level: "Intermediate"
   },
 ];
 
@@ -99,6 +100,17 @@ export function getEventTypeColor(type: Event["type"]): "primary" | "secondary" 
     networking: "warning",
   } as const;
   return colors[type];
+}
+
+export function getEventLevelColor(
+  level: NonNullable<Event["level"]>
+): "success" | "warning" | "error" | "info" {
+  const colors = {
+    Beginner: "success",
+    Intermediate: "warning",
+    Advanced: "error",
+  } as const;
+  return colors[level];
 }
 
 export function formatEventDate(dateString: string): string {
