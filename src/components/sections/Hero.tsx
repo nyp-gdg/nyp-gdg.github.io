@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import { gdgColors } from "../../theme";
+import HeroBackground from "./HeroBackground";
 
 function Hero() {
   function handleJoinClick(): void {
@@ -30,7 +31,8 @@ function Hero() {
         pb: { xs: 8, md: 12 },
       }}
     >
-      <Container maxWidth={"lg"}>
+      <HeroBackground />
+      <Container maxWidth={"lg"} sx={{ position: "relative", zIndex: 1 }}>
         {/* Official GDG Landing Page Header Banner */}
         <Box
           sx={{
